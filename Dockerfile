@@ -16,7 +16,7 @@ RUN set -x \
     && echo "LANG=en_US.UTF-8\nLC_MESSAGES=en_US.UTF-8\nLANGUAGE=" > /etc/default/locale \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && locale-gen \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y nano vi less tar wget curl pigz acl sed unzip gosu \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y nano vim less tar wget curl pigz acl sed unzip gosu \
     && DEBIAN_FRONTEND=noninteractive apt purge -yy sudo \
     && apt dist-upgrade -y \
     && echo "\nTypes: deb\nURIs: https://deb.debian.org/debian\nSuites: unstable\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" >> /etc/apt/sources.list.d/debian.sources \
