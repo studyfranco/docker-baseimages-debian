@@ -13,7 +13,7 @@ RUN set -x \
     && apt update \
     && apt install -y ca-certificates apt-transport-https --no-install-recommends \
     && echo "" > /etc/apt/sources.list \
-    && echo "Types: deb\nURIs: https://deb.debian.org/debian\nSuites: stable testing unstable\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" > /etc/apt/sources.list.d/debian.sources \
+    && echo "Types: deb deb-src\nURIs: https://deb.debian.org/debian\nSuites: stable testing unstable\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" > /etc/apt/sources.list.d/debian.sources \
     && echo "Package: *\nPin: release a=unstable\nPin-Priority: 490" > /etc/apt/preferences.d/list \
     && echo "Package: *\nPin: release a=stable\nPin-Priority: 480" >> /etc/apt/preferences.d/list \
     && apt update \
@@ -33,7 +33,7 @@ RUN set -x \
     && apt-get update -oAcquire::AllowInsecureRepositories=true \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --allow-unauthenticated deb-multimedia-keyring --no-install-recommends \
     && rm /etc/apt/sources.list.d/multimedia.list \
-    && echo "Types: deb\nURIs: https://www.deb-multimedia.org\nSuites: stable testing unstable\nComponents: main non-free\nEnabled: yes\nSigned-By: /usr/share/keyrings/deb-multimedia-keyring.pgp" > /etc/apt/sources.list.d/multimedia.sources \
+    && echo "Types: deb deb-src\nURIs: https://www.deb-multimedia.org\nSuites: stable testing unstable\nComponents: main non-free\nEnabled: yes\nSigned-By: /usr/share/keyrings/deb-multimedia-keyring.pgp" > /etc/apt/sources.list.d/multimedia.sources \
     && apt autopurge -yy \
     && apt clean \
     && rm -rf /var/cache/* /var/lib/apt/lists/* /var/log/* /var/tmp/* /tmp/*
