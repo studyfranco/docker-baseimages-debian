@@ -19,7 +19,7 @@ RUN set -x \
     && apt update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y locales nano vim less tar wget curl pigz acl sed unzip gosu net-tools bash-completion htop \
     && DEBIAN_FRONTEND=noninteractive apt purge -yy sudo \
-    && echo "C.UTF-8" >> /etc/locale.gen \
+    && echo "C.UTF-8 UTF-8" >> /etc/locale.gen \
     && echo "LANG=C.UTF-8\nLC_MESSAGES=C.UTF-8\nLANGUAGE=" > /etc/default/locale \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && locale-gen \
