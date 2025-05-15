@@ -1,6 +1,13 @@
 # Docker Base Image: Debian Slim with Essential Tools
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/studyfranco/docker-baseimages-debian)
+<div align="center">
+  
+![Github stars](https://badgen.net/github/stars/studyfranco/docker-baseimages-debian?icon=github&label=stars)
+![Github forks](https://badgen.net/github/forks/studyfranco/docker-baseimages-debian?icon=github&label=forks)
+![Github issues](https://img.shields.io/github/issues/studyfranco/docker-baseimages-debian)
+![Github last-commit](https://img.shields.io/github/last-commit/studyfranco/docker-baseimages-debian)
+  
+</div>
 
 ## Overview
 
