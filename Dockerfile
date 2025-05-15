@@ -14,8 +14,8 @@ RUN set -x \
     && apt install -y ca-certificates apt-transport-https --no-install-recommends \
     && echo "" > /etc/apt/sources.list \
     && echo "Types: deb deb-src\nURIs: https://deb.debian.org/debian\nSuites: stable testing unstable\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" > /etc/apt/sources.list.d/debian.sources \
-    && echo "Package: *\nPin: release a=unstable\nPin-Priority: 490" > /etc/apt/preferences.d/list \
-    && echo "Package: *\nPin: release a=stable\nPin-Priority: 480" >> /etc/apt/preferences.d/list \
+    && echo "Package: *\nPin: release a=testing\nPin-Priority: 490" > /etc/apt/preferences.d/list \
+    && echo "Package: *\nPin: release a=unstable\nPin-Priority: 480" >> /etc/apt/preferences.d/list \
     && apt update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y locales nano vim less tar wget curl pigz acl sed unzip gosu net-tools bash-completion htop \
     && DEBIAN_FRONTEND=noninteractive apt purge -yy sudo \
@@ -29,7 +29,7 @@ RUN set -x \
     && rm -rf /var/cache/* /var/lib/apt/lists/* /var/log/* /var/tmp/* /tmp/*
 
 RUN set -x \
-    && echo "deb https://www.deb-multimedia.org testing main non-free" > /etc/apt/sources.list.d/multimedia.list \
+    && echo "deb https://www.deb-multimedia.org stable main non-free" > /etc/apt/sources.list.d/multimedia.list \
     && apt-get update -oAcquire::AllowInsecureRepositories=true \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --allow-unauthenticated deb-multimedia-keyring --no-install-recommends \
     && rm /etc/apt/sources.list.d/multimedia.list \
