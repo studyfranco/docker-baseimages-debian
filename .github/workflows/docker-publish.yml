@@ -7,11 +7,11 @@ name: Docker
 
 on:
   push:
-    branches: [ "testing","stable" ]
+    branches: [ "testing","stable","testing-video" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ "testing","stable" ]
+    branches: [ "testing","stable","testing-video" ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -93,4 +93,5 @@ jobs:
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
+
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
