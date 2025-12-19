@@ -4,7 +4,7 @@ on:
 
 jobs:
   update-last-update:
-    runs-on: docker
+    runs-on: 20
 
     steps:
       - name: Checkout
