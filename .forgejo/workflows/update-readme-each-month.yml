@@ -13,8 +13,8 @@ jobs:
 
       - name: Set up git identity
         run: |
-          git config user.name "forgejo-actions[bot]"
-          git config user.email "forgejo-actions[bot]@localhost"
+          git config user.name "Francois STUDER"
+          git config user.email "31127324+studyfranco@users.noreply.github.com"
 
       - name: Update Last Update date in README
         run: |
