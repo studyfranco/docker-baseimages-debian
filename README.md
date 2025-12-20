@@ -61,6 +61,6 @@ This project is licensed under the GNU General Public License v3.0. See the [LIC
 For more information and updates, visit the [GitHub Repository](https://github.com/studyfranco/docker-baseimages-debian).
 
 ## Last Update
-
+2025-12-20
 
 2025/12/06
