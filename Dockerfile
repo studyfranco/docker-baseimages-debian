@@ -4,13 +4,12 @@ LABEL maintainer="studyfranco@gmail.com"
 
 RUN set -x \
     && apt update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y va-driver-all mesa-utils mesa-va-drivers mesa-vulkan-drivers mesa-opencl-icd libgl1-mesa-dri libglx-mesa0 vulkan-tools vainfo intel-media-va-driver-non-free firmware-intel-graphics firmware-intel-misc --no-install-recommends --fix-missing \
+    && apt install -y aptitude \
+    && DEBIAN_FRONTEND=noninteractive aptitude install -y -o Aptitude::ProblemResolver::SolutionCost='100 removed-packages, 200 canceled-actions, 50000' va-driver-all mesa-utils mesa-va-drivers mesa-vulkan-drivers mesa-opencl-icd libgl1-mesa-dri libglx-mesa0 vulkan-tools vainfo intel-media-va-driver-non-free firmware-intel-graphics firmware-intel-misc intel-opencl-icd --no-install-recommends --fix-missing \
     && apt autopurge -yy \
     && apt clean autoclean -y \
     && touch /var/cache/a && touch /var/log/a && touch /var/tmp/a && touch /tmp/a \
     && rm -rf /var/cache/* /var/lib/apt/lists/* /var/log/* /var/tmp/* /tmp/*
-
-# intel-opencl-icd => 11/2025 dependances problem
 
 RUN set -x \
     && apt update \
