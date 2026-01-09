@@ -62,5 +62,3 @@ For more information and updates, visit the [GitHub Repository](https://github.c
 
 ## Last Update
 2026-01-09
-
-2025/12/06
