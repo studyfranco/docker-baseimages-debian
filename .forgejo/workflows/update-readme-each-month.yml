@@ -6,6 +6,12 @@ on:
 jobs:
   update-last-update:
     runs-on: 20
+    strategy:
+      # prevent-concurrency ou fail-fast optionnel
+      fail-fast: false 
+      matrix:
+        # Liste ici toutes les branches sur lesquelles le script doit tourner
+        branch: [ "testing", "stable", "testing-video" ]
 
     steps:
       - name: Checkout
