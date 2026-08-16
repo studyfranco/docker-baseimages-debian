@@ -7,15 +7,15 @@ jobs:
   update-last-update:
     runs-on: 20
     strategy:
-      # prevent-concurrency ou fail-fast optionnel
-      fail-fast: false 
+      fail-fast: false
       matrix:
-        # Liste ici toutes les branches sur lesquelles le script doit tourner
         branch: [ "testing", "stable", "testing-video" ]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout target branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ matrix.branch }}
 
       - name: Set up git identity
         run: |
@@ -30,9 +30,13 @@ jobs:
             { print }
           ' README.md > README.tmp && mv README.tmp README.md
 
-      - name: Commit changes if needed
+      - name: Commit and push changes if needed
         run: |
           TODAY=$(date -u +'%Y-%m-%d')
           git add README.md
-          git commit -m "chore: monthly Last Update set to $TODAY"
-          git push
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: monthly Last Update set to $TODAY"
+            git push origin ${{ matrix.branch }}
+          else
+            echo "Aucune modification détectée."
+          fi
