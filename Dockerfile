@@ -14,8 +14,9 @@ RUN set -x \
     && apt install -y ca-certificates apt-transport-https --no-install-recommends \
     && echo "" > /etc/apt/sources.list \
     && echo "Types: deb deb-src\nURIs: https://deb.debian.org/debian\nSuites: stable testing unstable\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" > /etc/apt/sources.list.d/debian.sources \
-    && echo "Package: *\nPin: release a=testing\nPin-Priority: 490" > /etc/apt/preferences.d/list \
-    && echo "Package: *\nPin: release a=unstable\nPin-Priority: 480" >> /etc/apt/preferences.d/list \
+    && echo "Package: *\nPin: release a=stable\nPin-Priority: 900" > /etc/apt/preferences.d/list \
+    && echo "Package: *\nPin: release a=testing\nPin-Priority: 800" >> /etc/apt/preferences.d/list \
+    && echo "Package: *\nPin: release a=unstable\nPin-Priority: 700" >> /etc/apt/preferences.d/list \
     && apt autopurge -yy \
     && apt clean \
     && rm -rf /var/cache/* /var/lib/apt/lists/* /var/log/* /var/tmp/* /tmp/*
