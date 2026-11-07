@@ -13,6 +13,10 @@ on:
   pull_request:
     branches: [ "testing","stable","testing-video" ]
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
