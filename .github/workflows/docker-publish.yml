@@ -7,11 +7,11 @@ name: Docker
 
 on:
   push:
-    branches: [ "testing","stable","testing-video" ]
+    branches: [ "testing","stable","testing-video","stable-video" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ "testing","stable","testing-video" ]
+    branches: [ "testing","stable","testing-video","stable-video" ]
 
 concurrency:
   group: ${{ github.workflow }}
