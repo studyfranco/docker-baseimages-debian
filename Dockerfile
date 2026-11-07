@@ -24,6 +24,7 @@ RUN set -eux \
     && apt-get update \
     && apt-get install -y ca-certificates --no-install-recommends \
     && rm -f /etc/apt/apt.conf.d/99cainfo \
+    && apt-get dist-upgrade -y \
     && apt-get autoremove --purge -y \
     && apt-get clean \
     && rm -rf /var/cache/* /var/lib/apt/lists/* /var/log/* /var/tmp/* /tmp/*
@@ -32,7 +33,6 @@ RUN set -eux \
     && apt-get update \
     && apt-get install -y locales nano vim less tar wget curl pigz sed unzip iproute2 iputils-ping dnsutils bash-completion procps htop \
     && apt-get purge -y sudo || true \
-    && apt-get dist-upgrade -y \
     && apt-get autoremove --purge -y \
     && apt-get clean \
     && rm -rf /var/cache/* /var/lib/apt/lists/* /var/log/* /var/tmp/* /tmp/*
